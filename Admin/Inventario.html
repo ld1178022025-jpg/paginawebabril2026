@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administrador - Inventario</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h2>Gestión de Inventario</h2>
+    
+    <section id="formulario-producto">
+        <h3>Agregar Nuevo Producto</h3>
+        <input type="text" placeholder="Nombre del producto">
+        <input type="number" placeholder="Precio">
+        <input type="number" placeholder="Cantidad en Stock">
+        <input type="text" placeholder="Especialidad/Categoría">
+        <button>Subir al Inventario</button>
+    </section>
+
+    <hr>
+
+    <section id="lista-inventario">
+        <h3>Productos Vendidos y Existencias</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Stock</th>
+                    <th>Ventas</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ejemplo</td>
+                    <td>50</td>
+                    <td>12</td>
+                    <td><button>Editar</button> <button>Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
