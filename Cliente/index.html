@@ -15,6 +15,33 @@
             <a href="#">🛒</a>
         </nav>
     </header>
+    <section id="crud-formulario">
+    <h3>Entrada de Datos</h3>
+    <input type="text" id="prod-nombre" placeholder="Nombre del Producto">
+    <input type="number" id="prod-precio" placeholder="Precio ($)">
+    <input type="number" id="prod-stock" placeholder="Stock Inicial">
+    <select id="prod-categoria">
+        <option value="ropa">Ropa</option>
+        <option value="hogar">Hogar</option>
+        <option value="tecnologia">Tecnología</option>
+    </select>
+    <button id="btn-guardar">Guardar Producto</button>
+</section>
+
+<section id="crud-tabla">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th>Acciones</th> </tr>
+        </thead>
+        <tbody id="lista-productos-admin">
+            </tbody>
+    </table>
+</section>
 
     <main>
         <h2>Catálogo de Productos</h2>

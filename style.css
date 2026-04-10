@@ -1,4 +1,4 @@
-
+/* Configuración general */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -37,7 +37,7 @@ nav button {
     cursor: pointer;
 }
 
-
+/* Contenedor de Productos */
 .contenedor-productos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -61,7 +61,7 @@ nav button {
 .tarjeta h3 { font-size: 1.2rem; margin: 10px 0; }
 .tarjeta span { color: #27ae60; font-weight: bold; font-size: 1.1rem; }
 
-
+/* Botón de compra */
 .tarjeta button {
     display: block;
     width: 100%;
@@ -72,4 +72,37 @@ nav button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+/* Estilos específicos para el Admin */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #34495e;
+    color: white;
+}
+
+#formulario-producto {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border-left: 5px solid #3498db;
+}
+
+#formulario-producto input {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }

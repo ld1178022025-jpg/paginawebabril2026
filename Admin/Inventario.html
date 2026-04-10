@@ -2,43 +2,66 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administrador - Inventario</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <h2>Gestión de Inventario</h2>
-    
-    <section id="formulario-producto">
-        <h3>Agregar Nuevo Producto</h3>
-        <input type="text" placeholder="Nombre del producto">
-        <input type="number" placeholder="Precio">
-        <input type="number" placeholder="Cantidad en Stock">
-        <input type="text" placeholder="Especialidad/Categoría">
-        <button>Subir al Inventario</button>
-    </section>
+    <header>
+        <h1>Panel de Control Interno</h1>
+        <p>Gestión de productos y existencias</p>
+    </header>
 
-    <hr>
+    <main>
+        <section id="formulario-producto" class="seccion-admin">
+            <h3>+ Agregar Nuevo Producto</h3>
+            <div class="contenedor-inputs">
+                <input type="text" id="nombre-prod" placeholder="Nombre del producto">
+                <input type="number" id="precio-prod" placeholder="Precio ($)">
+                <input type="number" id="stock-prod" placeholder="Cantidad en Stock">
+                
+                <select id="categoria-prod">
+                    <option value="" disabled selected>Selecciona Especialidad</option>
+                    <option value="Ropa">Ropa</option>
+                    <option value="Hogar">Hogar</option>
+                    <option value="Tecnologia">Tecnología</option>
+                </select>
 
-    <section id="lista-inventario">
-        <h3>Productos Vendidos y Existencias</h3>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Producto</th>
-                    <th>Stock</th>
-                    <th>Ventas</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Ejemplo</td>
-                    <td>50</td>
-                    <td>12</td>
-                    <td><button>Editar</button> <button>Eliminar</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+                <button id="btn-subir">Subir al Inventario</button>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="lista-inventario" class="seccion-admin">
+            <h3>📊 Productos Vendidos y Existencias</h3>
+            
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Stock</th>
+                            <th>Ventas</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-cuerpo">
+                        <tr>
+                            <td>Producto de ejemplo</td>
+                            <td>50</td>
+                            <td>12</td>
+                            <td>
+                                <button class="btn-editar">Editar</button> 
+                                <button class="btn-eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="admin.js"></script>
 </body>
 </html>
