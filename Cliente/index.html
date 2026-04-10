@@ -3,57 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Tienda Online</title>
+    <title>Anime Store - Catálogo</title>
     <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <h1>tu sitio de confianza</h1>
-        <nav>
-            <input type="text" id="buscador" placeholder="Buscar por especialidad (ej: Ropa, Hogar...)">
-            <button onclick="buscar()">Buscar</button>
-            <a href="#">🛒</a>
-        </nav>
+
+    <header class="navbar">
+        <div class="logo">
+            <span>⚔️ Anime Store</span>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Buscar productos...">
+            <select>
+                <option>Todas las categorías</option>
+                <option>Mochilas</option>
+                <option>Carteras</option>
+                <option>Figuras</option>
+                <option>Camisetas</option>
+            </select>
+            <select>
+                <option>Todos los animes</option>
+                <option>My Hero Academia</option>
+                <option>Naruto</option> 
+                <option>Dragon Ball</option>
+                <option>One Piece</option>
+                
+            </select>
+        </div>
     </header>
-    <section id="crud-formulario">
-    <h3>Entrada de Datos</h3>
-    <input type="text" id="prod-nombre" placeholder="Nombre del Producto">
-    <input type="number" id="prod-precio" placeholder="Precio ($)">
-    <input type="number" id="prod-stock" placeholder="Stock Inicial">
-    <select id="prod-categoria">
-        <option value="ropa">Ropa</option>
-        <option value="hogar">Hogar</option>
-        <option value="tecnologia">Tecnología</option>
-    </select>
-    <button id="btn-guardar">Guardar Producto</button>
-</section>
 
-<section id="crud-tabla">
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Imagen</th>
-                <th>Nombre</th>
-                <th>Stock</th>
-                <th>Precio</th>
-                <th>Acciones</th> </tr>
-        </thead>
-        <tbody id="lista-productos-admin">
-            </tbody>
-    </table>
-</section>
+    <main class="container">
+        <h1 class="title">Nuestros Productos</h1>
+        <p class="count">8 productos encontrados</p>
 
-    <main>
-        <h2>Catálogo de Productos</h2>
-        <div class="contenedor-productos">
-            <div class="tarjeta">
-                <img src="https://via.placeholder.com/150" alt="Producto">
-                <h3>Producto de Ejemplo</h3>
-                <p>Especialidad: General</p>
-                <span>$10.00</span>
-                <button>Agregar a la canasta</button>
+        <div class="product-grid">
+            
+            <div class="card">
+                <div class="card-image">
+                    <span class="badge">Mochilas</span>
+                    <img src="../assets/imagen/191d4df6c0aa921b4f83f4013a2de067.jpg" alt="Mochila My Hero Academia">
+                    
+                </div>
+                <div class="card-info">
+                    <p class="anime-name">My Hero Academia</p>
+                    <h3>Mochila My Hero Academia</h3>
+                    <div class="rating">⭐⭐⭐⭐☆ <span>4.6</span></div>
+                    <div class="price">$44.99</div>
+                    <button class="btn-comprar">🛒 Comprar</button>
+                </div>
             </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <span class="badge">Carteras</span>
+                    <img src="../assets/imagen/Cartera Naruto Sharingan.jpg" alt="Cartera Naruto Sharingan">
+                </div>
+                <div class="card-info">
+                    <p class="anime-name">Naruto</p>
+                    <h3>Cartera Naruto Sharingan</h3>
+                    <div class="rating">⭐⭐⭐⭐☆ <span>4.8</span></div>
+                    <div class="price">$26.99</div>
+                    <button class="btn-comprar">🛒 Comprar</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image empty">
+                    <span class="badge">Figuras</span>
+                    <img src="../assets/imagen/Figura Dragon Ball Goku.jpg" alt="Figura Dragon Ball Goku">
+                </div>
+                <div class="card-info">
+                    <p class="anime-name">Dragon Ball</p>
+                    <h3>Figura Dragon Ball Goku</h3>
+                    <div class="rating">⭐⭐⭐⭐☆ <span>4.9</span></div>
+                    <div class="price">$39.99</div>
+                    <button class="btn-comprar">🛒 Comprar</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image empty">
+                    <span class="badge">Camisetas</span>
+                    <img src="../assets/imagen/Camiseta One Piece.jpg" alt="Camiseta One Piece Crew">
+                </div>
+                <div class="card-info">
+                    <p class="anime-name">One Piece</p>
+                    <h3>Camiseta One Piece Crew</h3>
+                    <div class="rating">⭐⭐⭐⭐☆ <span>4.8</span></div>
+                    <div class="price">$21.99</div>
+                    <button class="btn-comprar">🛒 Comprar</button>
+                </div>
+            </div>
+
         </div>
     </main>
+
+    <div class="chat-button">💬</div>
+
+    <div id="modalCompra" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>¿Tienes una cuenta?</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Inicia sesión para finalizar tus compras con mayor rapidez.</p>
+                <p class="subtext">Disfruta de acceso exclusivo a descuentos y promociones especiales.</p>
+                
+                <button class="btn-login">Inicia sesión</button>
+                <button class="btn-continue" id="btnCerrar">Seguir comprando</button>
+            </div>
+            <div class="modal-footer">
+                <p>¿No tienes cuenta? Contacta con nosotros por WhatsApp para crear una</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Obtener elementos del DOM
+        const modal = document.getElementById('modalCompra');
+        const botonesComprar = document.querySelectorAll('.btn-comprar');
+        const btnCerrar = document.getElementById('btnCerrar');
+        const iconoCerrar = document.querySelector('.close-modal');
+
+        // Abrir modal al hacer clic en cualquier botón de comprar
+        botonesComprar.forEach(boton => {
+            boton.addEventListener('click', () => {
+                modal.style.display = 'flex';
+            });
+        });
+
+        // Cerrar modal al hacer clic en "Seguir comprando"
+        btnCerrar.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Cerrar modal al hacer clic en la "X"
+        iconoCerrar.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Cerrar modal si se hace clic fuera del contenido blanco
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
 </body>
 </html>
