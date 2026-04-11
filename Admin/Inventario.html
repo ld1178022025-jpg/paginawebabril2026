@@ -3,65 +3,537 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administrador - Inventario</title>
+    <title>Administrador</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header>
-        <h1>Panel de Control Interno</h1>
-        <p>Gestión de productos y existencias</p>
-    </header>
-
-    <main>
-        <section id="formulario-producto" class="seccion-admin">
-            <h3>+ Agregar Nuevo Producto</h3>
-            <div class="contenedor-inputs">
-                <input type="text" id="nombre-prod" placeholder="Nombre del producto">
-                <input type="number" id="precio-prod" placeholder="Precio ($)">
-                <input type="number" id="stock-prod" placeholder="Cantidad en Stock">
-                
-                <select id="categoria-prod">
-                    <option value="" disabled selected>Selecciona Especialidad</option>
-                    <option value="Ropa">Ropa</option>
-                    <option value="Hogar">Hogar</option>
-                    <option value="Tecnologia">Tecnología</option>
-                </select>
-
-                <button id="btn-subir">Subir al Inventario</button>
-            </div>
-        </section>
-
-        <hr>
-
-        <section id="lista-inventario" class="seccion-admin">
-            <h3>📊 Productos Vendidos y Existencias</h3>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+    <div class="logo">
+        <img src="../assets/imagen/bonsai.jpeg" alt="Logo HIBLOOK" class="brand-logo">
+        <span class="logo-text">HIBLOOK</span>
+    </div>
+</div>
             
-            <div class="tabla-contenedor">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Stock</th>
-                            <th>Ventas</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabla-cuerpo">
-                        <tr>
-                            <td>Producto de ejemplo</td>
-                            <td>50</td>
-                            <td>12</td>
-                            <td>
-                                <button class="btn-editar">Editar</button> 
-                                <button class="btn-eliminar">Eliminar</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-label">Dashboard</span>
+                </a>
+                <a href="#productos" class="nav-item">
+                    <span class="nav-icon">🎎</span>
+                    <span class="nav-label">Figuras</span>
+                </a>
+                <a href="#inventario" class="nav-item">
+                    <span class="nav-icon">📈</span>
+                    <span class="nav-label">Stock</span>
+                </a>
+                <a href="#categorias" class="nav-item">
+                    <span class="nav-icon">🏷️</span>
+                    <span class="nav-label">Categorías</span>
+                </a>
+                <a href="#clientes" class="nav-item">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-label">Clientes</span>
+                </a>
+                <a href="#reportes" class="nav-item">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-label">Reportes</span>
+                </a>
+            </nav>
 
-    <script src="admin.js"></script>
+            <div class="sidebar-footer">
+                <a href="#perfil" class="nav-item">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-label">Perfil</span>
+                </a>
+                <a href="#ajustes" class="nav-item">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-label">Ajustes</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 class="page-title">Panel de Control</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Buscar figuras, Llaveros...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                    <button class="btn-notification">🔔</button>
+                    <div class="user-profile">
+                        <img src="../assets/imagen/placeholder-user.jpg" alt="Usuario">
+                        <span class="user-name">Khristian Jose</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-section">
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <h3 class="kpi-title">Ventas Hoy</h3>
+                            <span class="kpi-icon">💰</span>
+                        </div>
+                        <p class="kpi-value">$2,450</p>
+                        <p class="kpi-subtitle">+12% vs ayer</p>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <h3 class="kpi-title">Figuras Vendidas</h3>
+                            <span class="kpi-icon">🎎</span>
+                        </div>
+                        <p class="kpi-value">48</p>
+                        <p class="kpi-subtitle">+8 desde ayer</p>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <h3 class="kpi-title">Nuevos Nakamas</h3>
+                            <span class="kpi-icon">👥</span>
+                        </div>
+                        <p class="kpi-value">12</p>
+                        <p class="kpi-subtitle">+4 este mes</p>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <h3 class="kpi-title">Poco Stock</h3>
+                            <span class="kpi-icon">⚠️</span>
+                        </div>
+                        <p class="kpi-value">5</p>
+                        <p class="kpi-subtitle">Requieren restock</p>
+                    </div>
+                </div>
+
+                <div class="charts-section">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Figuras Más Buscadas</h3>
+                            <select class="chart-filter">
+                                <option>Últimos 7 días</option>
+                                <option>Últimos 30 días</option>
+                                <option>Este año</option>
+                            </select>
+                        </div>
+                        <div class="product-chart">
+                            <div class="chart-row">
+                                <span class="product-name">Goku Super Saiyan</span>
+                                <div class="chart-bar">
+                                    <div class="bar-fill" style="width: 95%;"></div>
+                                </div>
+                                <span class="chart-value">245 unidades</span>
+                            </div>
+                            <div class="chart-row">
+                                <span class="product-name">Luffy Gear 5</span>
+                                <div class="chart-bar">
+                                    <div class="bar-fill" style="width: 82%;"></div>
+                                </div>
+                                <span class="chart-value">189 unidades</span>
+                            </div>
+                            <div class="chart-row">
+                                <span class="product-name">Naruto Hokage</span>
+                                <div class="chart-bar">
+                                    <div class="bar-fill" style="width: 75%;"></div>
+                                </div>
+                                <span class="chart-value">156 unidades</span>
+                            </div>
+                            <div class="chart-row">
+                                <span class="product-name">Tanjiro Kamado</span>
+                                <div class="chart-bar">
+                                    <div class="bar-fill" style="width: 68%;"></div>
+                                </div>
+                                <span class="chart-value">124 unidades</span>
+                            </div>
+                            <div class="chart-row">
+                                <span class="product-name">Nezuko Figuarts</span>
+                                <div class="chart-bar">
+                                    <div class="bar-fill" style="width: 45%;"></div>
+                                </div>
+                                <span class="chart-value">87 unidades</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Preventas Recientes</h3>
+                        </div>
+                        <div class="recent-purchases">
+                            <div class="purchase-item">
+                                <div class="purchase-info">
+                                    <p class="purchase-customer">María García</p>
+                                    <p class="purchase-product">Figura Nendoroid Eren</p>
+                                </div>
+                                <span class="purchase-time">hace 2 min</span>
+                                <span class="purchase-amount">$1,299</span>
+                            </div>
+                            <div class="purchase-item">
+                                <div class="purchase-info">
+                                    <p class="purchase-customer">Carlos López</p>
+                                    <p class="purchase-product">Estatua Zoro 1/4</p>
+                                </div>
+                                <span class="purchase-time">hace 15 min</span>
+                                <span class="purchase-amount">$599</span>
+                            </div>
+                            <div class="purchase-item">
+                                <div class="purchase-info">
+                                    <p class="purchase-customer">Ana Martínez</p>
+                                    <p class="purchase-product">Katana Decorativa</p>
+                                </div>
+                                <span class="purchase-time">hace 28 min</span>
+                                <span class="purchase-amount">$189</span>
+                            </div>
+                            <div class="purchase-item">
+                                <div class="purchase-info">
+                                    <p class="purchase-customer">Diego Ruiz</p>
+                                    <p class="purchase-product">Llaveros Chibi x2</p>
+                                </div>
+                                <span class="purchase-time">hace 45 min</span>
+                                <span class="purchase-amount">$98</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Catálogo de Productos</h2>
+                        <button class="btn-primary">+ Nueva Figura</button>
+                    </div>
+
+                    <div class="filter-bar">
+                        <div class="filter-group">
+                            <label>Serie:</label>
+                            <select class="filter-select">
+                                <option>Todas</option>
+                                <option>One Piece</option>
+                                <option>Dragon Ball</option>
+                                <option>Naruto</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Marca:</label>
+                            <select class="filter-select">
+                                <option>Todas</option>
+                                <option>Banpresto</option>
+                                <option>Bandai</option>
+                                <option>Good Smile</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Estado:</label>
+                            <select class="filter-select">
+                                <option>Todos</option>
+                                <option>En Stock</option>
+                                <option>Preventa</option>
+                                <option>Agotado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="products-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Figura</th>
+                                    <th>Código</th>
+                                    <th>Especialidad</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th>Vendidos</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="product-cell">
+                                        <span class="product-icon">🏯</span>
+                                        <span>Goku Ultra Instinto</span>
+                                    </td>
+                                    <td>DBZ-2024</td>
+                                    <td>Dragon Ball</td>
+                                    <td>$1,299</td>
+                                    <td>34</td>
+                                    <td>245</td>
+                                    <td><span class="status-badge status-active">En Stock</span></td>
+                                    <td class="action-buttons">
+                                        <button class="btn-icon" title="Editar">✏️</button>
+                                        <button class="btn-icon btn-danger" title="Eliminar">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="product-cell">
+                                        <span class="product-icon">🏴‍☠️</span>
+                                        <span>Luffy Wano Kuni</span>
+                                    </td>
+                                    <td>OP-4K24</td>
+                                    <td>One Piece</td>
+                                    <td>$599</td>
+                                    <td>12</td>
+                                    <td>124</td>
+                                    <td><span class="status-badge status-warning">Bajo Stock</span></td>
+                                    <td class="action-buttons">
+                                        <button class="btn-icon" title="Editar">✏️</button>
+                                        <button class="btn-icon btn-danger" title="Eliminar">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="product-cell">
+                                        <span class="product-icon">🦊</span>
+                                        <span>Naruto Shippuden</span>
+                                    </td>
+                                    <td>NAR-MEC24</td>
+                                    <td>Naruto</td>
+                                    <td>$189</td>
+                                    <td>56</td>
+                                    <td>156</td>
+                                    <td><span class="status-badge status-active">En Stock</span></td>
+                                    <td class="action-buttons">
+                                        <button class="btn-icon" title="Editar">✏️</button>
+                                        <button class="btn-icon btn-danger" title="Eliminar">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="product-cell">
+                                        <span class="product-icon">👹</span>
+                                        <span>Nezuko Kamado</span>
+                                    </td>
+                                    <td>DS-WLS24</td>
+                                    <td>Demon Slayer</td>
+                                    <td>$49</td>
+                                    <td>2</td>
+                                    <td>189</td>
+                                    <td><span class="status-badge status-danger">Agotado</span></td>
+                                    <td class="action-buttons">
+                                        <button class="btn-icon" title="Editar">✏️</button>
+                                        <button class="btn-icon btn-danger" title="Eliminar">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="product-cell">
+                                        <span class="product-icon">⚔️</span>
+                                        <span>Saber Arturia</span>
+                                    </td>
+                                    <td>FATE-PRO24</td>
+                                    <td>Fate Series</td>
+                                    <td>$299</td>
+                                    <td>23</td>
+                                    <td>87</td>
+                                    <td><span class="status-badge status-active">En Stock</span></td>
+                                    <td class="action-buttons">
+                                        <button class="btn-icon" title="Editar">✏️</button>
+                                        <button class="btn-icon btn-danger" title="Eliminar">🗑️</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="inventory-section">
+                    <h2 class="section-title">Resumen de Inventario</h2>
+                    <div class="inventory-grid">
+                        <div class="inventory-card">
+                            <div class="inventory-label">Total en Vitrina</div>
+                            <div class="inventory-value">127 artículos</div>
+                            <div class="inventory-chart">
+                                <div class="mini-bar" style="height: 40px;"></div>
+                            </div>
+                        </div>
+                        <div class="inventory-card">
+                            <div class="inventory-label">Valor del Almacén</div>
+                            <div class="inventory-value">$185,240</div>
+                            <div class="inventory-chart">
+                                <div class="mini-bar" style="height: 35px;"></div>
+                            </div>
+                        </div>
+                        <div class="inventory-card">
+                            <div class="inventory-label">Series por Agotarse</div>
+                            <div class="inventory-value">5 colecciones</div>
+                            <div class="inventory-chart">
+                                <div class="mini-bar " style="height: 20px;"></div>
+                            </div>
+                        </div>
+                        <div class="inventory-card">
+                            <div class="inventory-label">Rotación (Mensual)</div>
+                            <div class="inventory-value">2.5x</div>
+                            <div class="inventory-chart">
+                                <div class="mini-bar" style="height: 38px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categories-section">
+    <div class="section-header">
+        <h2 class="section-title">Categorías y Especialidades</h2>
+        <button class="btn-primary" id="addCategoryBtn">+ Nueva Categoría</button>
+    </div>
+
+    <div class="categories-grid">
+        <div class="category-card">
+            <div class="category-header">
+                <span class="category-icon">👛</span>
+                <h3 class="category-name">Carteras</h3>
+            </div>
+            <div class="category-info">
+                <p class="category-products">12 unidades</p>
+                <p class="category-description">Billeteras y monederos temáticos</p>
+            </div>
+            <div class="category-actions">
+                <button class="btn-secondary-small" title="Editar">✏️ Editar</button>
+                <button class="btn-danger-small" title="Eliminar">🗑️ Eliminar</button>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <div class="category-header">
+                <span class="category-icon">🔑</span>
+                <h3 class="category-name">Llaveros</h3>
+            </div>
+            <div class="category-info">
+                <p class="category-products">25 unidades</p>
+                <p class="category-description">Llaveros acrílicos y de goma</p>
+            </div>
+            <div class="category-actions">
+                <button class="btn-secondary-small" title="Editar">✏️ Editar</button>
+                <button class="btn-danger-small" title="Eliminar">🗑️ Eliminar</button>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <div class="category-header">
+                <span class="category-icon">📿</span>
+                <h3 class="category-name">Bisutería</h3>
+            </div>
+            <div class="category-info">
+                <p class="category-products">15 unidades</p>
+                <p class="category-description">Pulseras, collares y aretes</p>
+            </div>
+            <div class="category-actions">
+                <button class="btn-secondary-small" title="Editar">✏️ Editar</button>
+                <button class="btn-danger-small" title="Eliminar">🗑️ Eliminar</button>
+            </div>
+        </div>
+
+        <div class="category-card">
+            <div class="category-header">
+                <span class="category-icon">🎌</span>
+                <h3 class="category-name">Anime (Especialidad)</h3>
+            </div>
+            <div class="category-info">
+                <p class="category-products">40 artículos</p>
+                <p class="category-description">Productos vinculados a series específicas</p>
+            </div>
+            <div class="category-actions">
+                <button class="btn-secondary-small" title="Editar">✏️ Editar</button>
+                <button class="btn-danger-small" title="Eliminar">🗑️ Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="addProductModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Registrar Nueva Figura</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="product-form">
+                    <div class="form-group">
+                        <label for="productName">Nombre del Personaje</label>
+                        <input type="text" id="productName" placeholder="Ej: Goku Ultra Instinto">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productCategory">Serie</label>
+                            <select id="productCategory">
+                                <option>Dragon Ball</option>
+                                <option>One Piece</option>
+                                <option>Naruto</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="productSpecialty">Tipo</label>
+                            <select id="productSpecialty">
+                                <option>Premium (Estatua)</option>
+                                <option>Económico (Prize)</option>
+                                <option>Articulada (Figuarts)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productPrice">Precio</label>
+                            <input type="number" id="productPrice" placeholder="0.00">
+                        </div>
+                        <div class="form-group">
+                            <label for="productStock">Stock Inicial</label>
+                            <input type="number" id="productStock" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productDescription">Detalles Técnicos</label>
+                        <textarea id="productDescription" rows="3" placeholder="Marca, escala, materiales..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary">Cancelar</button>
+                <button class="btn-primary">Guardar Coleccionable</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="addCategoryModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h2>Nueva Categoría de Producto</h2>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form class="category-form">
+                <div class="form-group">
+                    <label for="categoryName">Nombre de la Categoría o Anime</label>
+                    <input type="text" id="categoryName" placeholder="Ej: Carteras, Llaveros, Naruto, One Piece">
+                </div>
+                <div class="form-group">
+                    <label for="categoryIcon">Icono Temático</label>
+                    <input type="text" id="categoryIcon" placeholder="Ej: 👛, 🔑, 🧸, ⚔️" maxlength="2">
+                    <small>Elige un emoji representativo del producto o anime</small>
+                </div>
+                <div class="form-group">
+                    <label for="categoryDescription">Descripción de Categoría</label>
+                    <textarea id="categoryDescription" rows="3" placeholder="Breve descripción de los artículos..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="categoryColor">Color distintivo</label>
+                    <div class="color-picker-group">
+                        <input type="color" id="categoryColor" value="#486282" title="Selecciona un color">
+                        <span id="colorPreview" class="color-preview" style="background-color: #486282;"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-secondary" id="cancelCategoryBtn">Cancelar</button>
+            <button class="btn-primary" id="saveCategoryBtn">Crear Categoría</button>
+        </div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
 </body>
 </html>
