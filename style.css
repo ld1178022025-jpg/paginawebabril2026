@@ -11,9 +11,11 @@ body {
 
 /* --- NAVBAR --- */
 .navbar {
-    background: linear-gradient(90deg, #1f0c66 0%, #3a0074 100%);
+    /* Usamos tus variables para el degradado */
+    background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
     padding: 20px 50px;
-    color: white;
+    color: white; /* El blanco resalta bien sobre estos azules */
+    border-bottom: 2px solid var(--accent-light); /* Opcional: un detalle en beige */
 }
 
 .logo {
@@ -96,7 +98,7 @@ body {
     position: absolute;
     top: 15px;
     right: 15px;
-    background-color: #6236ff; /* Morado vibrante de la imagen */
+    background-color: var(--accent-warm); /* Cambiado de morado a marrón cálido */
     color: white;
     padding: 5px 15px;
     border-radius: 20px;
@@ -104,7 +106,6 @@ body {
     font-weight: bold;
     z-index: 10;
 }
-
 /* --- INFORMACIÓN Y PRECIO --- */
 .card-info {
     padding: 20px;
@@ -138,13 +139,14 @@ body {
 .price {
     font-size: 26px;
     font-weight: 800;
-    color: #3b3bff; 
+    color: var(--primary-dark); /* Cambiado de azul vibrante a tu azul marino */
     margin: 10px 0;
 }
 
 /* --- BOTÓN DE COMPRA --- */
+
 .btn-comprar {
-    background: linear-gradient(90deg,  #1f0c66 0%, #3a0074 100%);
+    background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
     color: white;
     border: none;
     padding: 12px;
@@ -156,26 +158,27 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    transition: opacity 0.2s;
+    transition: all 0.3s ease;
 }
 
 .btn-comprar:hover {
-    opacity: 0.9;
+    background: var(--primary-dark);
+    box-shadow: 0 4px 12px rgba(26, 40, 71, 0.2);
 }
-
 /* --- CHAT Y MODAL --- */
 .chat-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #2ecc71;
+   background-color: var(--primary-medium); /* Cambiado de verde a tu azul grisáceo */
+    color: white;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    
     font-size: 24px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     z-index: 999;
@@ -207,8 +210,7 @@ body {
 }
 
 .modal-header {
-    background: linear-gradient(90deg, #6236ff, #a044ff);
-    color: white;
+   background: linear-gradient(90deg, var(--primary-medium), var(--primary-light)); /* Cambiado de morado a tus azules */    color: white;
     padding: 20px;
     position: relative;
 }
@@ -242,12 +244,12 @@ body {
 }
 
 .btn-login {
-    background: linear-gradient(90deg, #3232f0, #8d47ff);
+    background: linear-gradient(90deg, var(--primary-medium), var(--primary-dark)); /* Cambiado a tus azules */
     color: white;
 }
 
 .btn-continue {
-    background: #ff001e;
+    background: var(--accent-warm); /* Cambiado de rojo a marrón cálido */
     color: white;
 }
 
@@ -334,10 +336,55 @@ body {
     margin-bottom: 32px;
 }
 .brand-logo {
-    width: 45px; /* Tamaño ideal para sidebar */
-    height: auto;
-    display: block;
-    object-fit: contain;
+    width: 150px;
+    
+}
+.brand-lista {
+    width: 25px;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Transición suave */
+    color: var(--primary-dark); /* Color inicial */
+}
+
+/* Configuración base de la Sidebar */
+
+
+/* Cuando la sidebar está colapsada */
+.sidebar.collapsed {
+    width: 70px; /* Ancho cerrada (solo iconos) */
+}
+
+/* Efecto hover en el icono de menú */
+.brand-lista {
+    width: 25px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+}
+
+/* Filtro para aproximar el color #a4b5c4 (primary-light) al pasar el mouse */
+.brand-lista:hover {
+    filter: invert(85%) sepia(10%) saturate(500%) hue-rotate(170deg);
+}
+
+/* Ocultar las etiquetas de texto cuando esté colapsada */
+.sidebar.collapsed .nav-label {
+    display: none;
+}
+
+/* Estilo de los items para que no se amontonen */
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 22px;
+    text-decoration: none;
+    color: white;
+    white-space: nowrap; /* Evita que el texto salte de línea al encogerse */
+}
+
+.nav-icon {
+    font-size: 20px;
+    min-width: 25px;
+    margin-right: 15px;
 }
 
 .logo {
@@ -421,13 +468,13 @@ body {
    TOP HEADER
    ============================================ */
 .top-header {
-   background: rgb(205, 213, 219);
+   background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
     padding: 20px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(115, 114, 114, 0.05);
 }
 
 .header-left {
@@ -437,7 +484,7 @@ body {
 .page-title {
     font-size: 28px;
     font-weight: 700;
-    color: var(--primary-dark);
+    color: var(--primary-light);
     letter-spacing: -0.5px;
 }
 
@@ -509,7 +556,35 @@ body {
     font-weight: 500;
     color: var(--text-primary);
 }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
 
+.cart-icon-container {
+    position: relative;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.cart-icon {
+    width: 30px; /* Ajusta según el tamaño de tu icono */
+    filter: brightness(0) invert(1); /* Si el icono es negro, esto lo vuelve blanco para que resalte */
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #A68868; /* El color arena de tu paleta */
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+}
 /* ============================================
    DASHBOARD SECTION
    ============================================ */
@@ -538,7 +613,7 @@ body {
 .kpi-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--primary-medium);
+    border-color: var(--accent-light);
 }
 
 .kpi-header {
@@ -703,7 +778,7 @@ body {
 .purchase-amount {
     font-size: 14px;
     font-weight: 700;
-    color: var(--primary-medium);
+    color: var(--primary-dark);
 }
 
 /* ============================================
@@ -770,6 +845,7 @@ body {
 
 /* Filter Bar */
 .filter-bar {
+    background: linear-gradient(90deg, var(--primary-medium), var(--primary-light));
     display: flex;
     gap: 16px;
     margin-bottom: 24px;
@@ -870,13 +946,13 @@ tbody tr:hover {
 }
 
 .status-active {
-    background: #e8f5e9;
-    color: #2e7d32;
+   background: #e1f0e5; /* Verde muy suave */
+    color: var(--success);
 }
 
 .status-warning {
-    background: #fff3e0;
-    color: #e65100;
+    background: #fdf2e2; /* Naranja muy suave */
+    color: var(--warning);
 }
 
 .status-danger {
@@ -942,6 +1018,7 @@ tbody tr:hover {
 }
 
 .inventory-value {
+    
     font-size: 24px;
     font-weight: 700;
     color: var(--primary-dark);
@@ -976,7 +1053,7 @@ tbody tr:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(71, 26, 26, 0.5);
+    background: rgba(26, 40, 71, 0.6);
     align-items: center;
     justify-content: center;
     z-index: 1000;

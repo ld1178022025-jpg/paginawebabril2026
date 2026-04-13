@@ -10,17 +10,13 @@
     <div class="app-container">
         <aside class="sidebar">
             <div class="sidebar-header">
-    <div class="logo">
-        <img src="../assets/imagen/bonsai.jpeg" alt="Logo HIBLOOK" class="brand-logo">
-        <span class="logo-text">HIBLOOK</span>
+    <div class="lista">
+        <img src="../assets/imagen/menu.png" alt="Lista" class="brand-lista">
+        
     </div>
 </div>
             
             <nav class="sidebar-nav">
-                <a href="#dashboard" class="nav-item active">
-                    <span class="nav-icon">📊</span>
-                    <span class="nav-label">Dashboard</span>
-                </a>
                 <a href="#productos" class="nav-item">
                     <span class="nav-icon">🎎</span>
                     <span class="nav-label">Figuras</span>
@@ -57,8 +53,8 @@
 
         <main class="main-content">
             <header class="top-header">
-                <div class="header-left">
-                    <h1 class="page-title">Panel de Control</h1>
+                <div class="logo">
+                     <img src="../assets/imagen/Recurso 2.png" alt="logo" class="brand-logo">
                 </div>
                 <div class="header-right">
                     <div class="search-bar">
@@ -534,6 +530,15 @@
     </div>
 </div>
 
-    <script src="script.js"></script>
+    <script src="script.js">
+        document.addEventListener('DOMContentLoaded', () => {
+    const btnLista = document.querySelector('.brand-lista');
+    const sidebar = document.querySelector('.sidebar');
+
+    btnLista.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+    });
+});
+    </script>
 </body>
 </html>

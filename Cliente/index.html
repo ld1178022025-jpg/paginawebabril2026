@@ -9,29 +9,36 @@
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">
-            <span>⚔️ Anime Store</span>
-        </div>
-        <div class="search-container">
-            <input type="text" placeholder="Buscar productos...">
-            <select>
-                <option>Todas las categorías</option>
-                <option>Mochilas</option>
-                <option>Carteras</option>
-                <option>Figuras</option>
-                <option>Camisetas</option>
-            </select>
-            <select>
-                <option>Todos los animes</option>
-                <option>My Hero Academia</option>
-                <option>Naruto</option> 
-                <option>Dragon Ball</option>
-                <option>One Piece</option>
-                
-            </select>
-        </div>
-    </header>
+   <header class="navbar">
+    <div class="logo">
+        <img src="../assets/imagen/Recurso 2.png" alt="Logo" style="height: 40px;">
+        
+    </div>
+
+    <div class="search-container">
+        <input type="text" placeholder="Buscar productos...">
+        <select>
+            <option>Todas las categorías</option>
+            <option>Mochilas</option>
+            <option>Carteras</option>
+            <option>Figuras</option>
+            <option>Camisetas</option>
+        </select>
+        <select>
+            <option>Todos los animes</option>
+            <option>My Hero Academia</option>
+            <option>Naruto</option> 
+            <option>Dragon Ball</option>
+            <option>One Piece</option>
+        </select> 
+        <div class="cart-icon-container" id="cartIcon">
+        <img src="../assets/imagen/carrito-de-compras.png" alt="Carrito" class="cart-icon">
+        <span class="cart-badge" id="cartBadge">0</span>
+    </div>
+    </div>
+
+    
+</header>
 
     <main class="container">
         <h1 class="title">Nuestros Productos</h1>
@@ -151,6 +158,24 @@
             }
         }
     </script>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h2>Carrito (<span id="cartTotalItems">0</span>)</h2>
+        <button class="close-cart" id="closeCart">&times;</button>
+    </div>
+    
+    <div class="cart-items-container" id="cartItemsList">
+        </div>
+    
+    <div class="cart-footer">
+        <div class="total-section">
+            <p>Total parcial</p>
+            <p id="cartTotalPrice">$ 0.00</p>
+        </div>
+        <button class="btn-checkout">Pasar por la caja</button>
+    </div>
+</div>
 
+<div class="cart-overlay" id="cartOverlay"></div>
 </body>
 </html>
